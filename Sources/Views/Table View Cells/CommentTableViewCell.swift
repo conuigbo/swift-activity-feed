@@ -51,6 +51,13 @@ open class CommentTableViewCell: BaseTableViewCell {
         moreReplies = ""
     }
     
+    public func darkMode(){
+        
+        
+        commentLabel.backgroundColor = .black
+        commentLabel.textColor = .white
+    }
+    
     public func updateComment(name: String, comment: String, date: Date) {
         let attributedText = NSMutableAttributedString(string: name, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold)])
         let comment = NSAttributedString(string: "\n\(comment)", attributes: [.font: UIFont.systemFont(ofSize: 12)])

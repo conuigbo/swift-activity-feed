@@ -38,6 +38,11 @@ public final class FlatFeedPresenter<T: ActivityProtocol>: PaginatorProtocol {
         subscriptionPresenter = SubscriptionPresenter(feed: flatFeed)
     }
     
+    // gives the ability to update items
+    public func updateItems(updatedList:[ActivityPresenter<T>]){
+        items = updatedList
+    }
+    
     /// Resets the items loaded so far.
     public func reset() {
         items = []

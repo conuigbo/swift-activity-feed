@@ -61,7 +61,7 @@ public final class Activity: EnrichedActivity<User, ActivityObject, Reaction>, T
         try super.encode(to: encoder)
     }
     
-    public updateText(_ updatedText:String){
+    public func updateText(_ updatedText:String){
         self.original.text = updatedText
     }
 }

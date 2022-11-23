@@ -11,7 +11,7 @@ import UIKit
 
 /// An activity object protocol.
 public protocol ActivityObjectProtocol: Enrichable {
-    var text: String? { get }
+    var text: String? { get set }
     var imageURL: URL? { get }
 }
 

@@ -84,6 +84,11 @@ public enum ActivityObject: ActivityObjectProtocol {
     public static func missed() -> ActivityObject {
         return .text("!missed_reference")
     }
+    
+    public func updateText(_ updatedText:String){
+        text = updatedText
+       // self.original.
+    }
 }
 
 extension ActivityObject {

@@ -60,8 +60,4 @@ public final class Activity: EnrichedActivity<User, ActivityObject, Reaction>, T
         try container.encodeIfPresent(attachment, forKey: .attachments)
         try super.encode(to: encoder)
     }
-    
-    public func updateText(_ updatedText:String){
-        self.original.text = updatedText
-    }
 }

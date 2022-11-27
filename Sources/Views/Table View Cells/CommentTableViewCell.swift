@@ -71,4 +71,22 @@ open class CommentTableViewCell: BaseTableViewCell {
         
         commentLabel.attributedText = attributedText
     }
+    
+    public func updateComment(comment: String) {
+        
+        var split = commentLabel.attributedText.componentsSeparatedByString("\n")
+        split[0] = comment
+        var newComment = split.joined(separator:"\n")
+       /* let attributedText = NSMutableAttributedString(string: name, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold)])
+        let comment = NSAttributedString(string: "\n\(comment)", attributes: [.font: UIFont.systemFont(ofSize: 12)])
+        attributedText.append(comment)
+        let date = NSAttributedString(string: "\n\(date.relative)", attributes: [.foregroundColor: UIColor.lightGray])
+        attributedText.append(date)
+        
+        attributedText.applyParagraphStyle { paragraphStyle in
+            paragraphStyle.lineHeightMultiple = 1.2
+        }*/
+        
+        commentLabel.attributedText = newComment
+    }
 }

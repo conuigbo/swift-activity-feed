@@ -51,9 +51,8 @@ open class CommentTableViewCell: BaseTableViewCell {
         moreReplies = ""
     }
     
-    public func darkMode(){
-        
-        
+    public func darkMode() {
+    
         commentLabel.backgroundColor = .black
         commentLabel.textColor = .white
     }
@@ -72,21 +71,36 @@ open class CommentTableViewCell: BaseTableViewCell {
         commentLabel.attributedText = attributedText
     }
     
-    public func updateComment(comment: String) {
+    public func updateComment(originalText: String) {
         
-        var split = commentLabel.attributedText.componentsSeparatedByString("\n")
-        split[0] = comment
-        var newComment = split.joined(separator:"\n")
-       /* let attributedText = NSMutableAttributedString(string: name, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold)])
-        let comment = NSAttributedString(string: "\n\(comment)", attributes: [.font: UIFont.systemFont(ofSize: 12)])
+        var splits = commentLabel.text?.components(separatedBy: "\n")
+            
+        
+        var name = splits![0]
+        var commentString = originalText
+        var dateString = splits![2]
+        
+        var newComment = splits!.joined(separator:"\n")
+        let attributedText = NSMutableAttributedString(string: name, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold)])
+        let comment = NSAttributedString(string: "\n\(commentString)", attributes: [.font: UIFont.systemFont(ofSize: 12)])
         attributedText.append(comment)
-        let date = NSAttributedString(string: "\n\(date.relative)", attributes: [.foregroundColor: UIColor.lightGray])
+        let date = NSAttributedString(string: "\n\(dateString)", attributes: [.foregroundColor: UIColor.lightGray])
         attributedText.append(date)
         
         attributedText.applyParagraphStyle { paragraphStyle in
             paragraphStyle.lineHeightMultiple = 1.2
-        }*/
+        }
         
-        commentLabel.attributedText = newComment
+        commentLabel.attributedText = attributedText
+    }
+    
+    public func getComment() -> String{
+        
+        var splits = commentLabel.text?.components(separatedBy: "\n")
+            
+        var newComment = splits!.joined(separator:"\n")
+        print(newComment)
+        return commentLabel.text!
     }
 }
+
